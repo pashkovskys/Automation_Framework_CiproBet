@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Login suite">
+
+    <listeners>
+        <listener class-name="listener.RetryListener"/>
+    </listeners>
+
+    <test name="Login tests">
+        <classes>
+            <class name="tests.signIn.TestSignIn"/>
+            <class name="tests.signIn.TestValidationSignIn"/>
+        </classes>
+    </test>
+</suite>

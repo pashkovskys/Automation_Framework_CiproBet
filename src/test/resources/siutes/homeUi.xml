@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Home UI suite">
+    <listeners>
+        <listener class-name="listener.RetryListener"/>
+    </listeners>
+
+    <test name="Home UI tests">
+        <classes>
+            <class name="tests.home.TestFooter"/>
+            <class name="tests.home.TestHomeUI"/>
+            <class name="tests.home.TestHeader"/>
+        </classes>
+    </test>
+</suite>

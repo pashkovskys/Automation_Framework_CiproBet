@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Registration suite">
+    <listeners>
+        <listener class-name="listener.RetryListener"/>
+    </listeners>
+
+    <test name="Registration tests">
+        <classes>
+            <class name="tests.signUp.TestSignUp"/>
+            <class name="tests.signUp.TestValidationSignUp"/>
+        </classes>
+    </test>
+</suite>
