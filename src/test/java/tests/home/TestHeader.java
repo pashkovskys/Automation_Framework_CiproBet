@@ -7,7 +7,6 @@ import tests.AbstractTestBase;
 import static org.testng.Assert.assertTrue;
 import static pages.utils.CheckUtil.isPresent;
 
-
 public class TestHeader extends AbstractTestBase {
 
     @Test
@@ -30,13 +29,16 @@ public class TestHeader extends AbstractTestBase {
 
         headerPage.open();
         headerPage.clickCiproBetBtn()
-                .assertTrueUrlContains()
-                .clickChangeLanguageBtn()
-                .assertEqualsGetLanguageLogo()
-                .setLoginBtn()
-                .assertEqualsGetMemberLogin()
-                .clouseMemberLoginIcon()
-                .setSignUpBtn()
-                .assertEqualsGetRegistrationForm();
+                  .assertTrueUrlContains();
+
+        headerPage.clickChangeLanguageBtn()
+                  .assertEqualsGetLanguageLogo();
+
+        headerPage.setLoginBtn()
+                  .assertEqualsGetMemberLogin()
+                  .clouseMemberLoginIcon();
+
+        headerPage.setSignUpBtn()
+                  .assertEqualsGetRegistrationForm();
     }
 }

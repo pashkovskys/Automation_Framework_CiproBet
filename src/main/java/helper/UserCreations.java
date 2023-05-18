@@ -1,7 +1,5 @@
 package helper;
 
-import org.apache.commons.lang3.RandomStringUtils;
-import org.testng.annotations.Test;
 import java.security.SecureRandom;
 import java.util.Locale;
 
@@ -27,11 +25,5 @@ public class UserCreations {
 
         String phoneNumber = String.format(Locale.ENGLISH, "%d%03d%04d",  firstThreeDigits,lastThreeDigits, lastFourDigits);
         return phoneNumber;
-    }
-    @Test
-    public void text(){
-        System.out.println( System.currentTimeMillis());
-        System.out.println( RandomStringUtils.random(2, "wqr234"));
-        System.out.println(RandomStringUtils.randomNumeric(3));
     }
 }

@@ -14,15 +14,18 @@ public class TestFooter extends AbstractTestBase {
 
         footerPage.open();
         footerPage.clickAboutUsBtn()
-                .assertTrueUrlContainsAboutus()
-                .clickFAQBtn()
-                .assertEqualsGetNotificationMessageFaq()
-                .clickCloseInformationWindow()
-                .clickRulesBtn()
-                .assertEqualsGetNotificationMessageRules()
-                .clickCloseInformationWindow()
-                .clickContactUsBtn()
-                .assertTrueUrlContainsContactUs();
+                  .assertTrueUrlContainsAboutus();
+
+        footerPage.clickFAQBtn()
+                  .assertEqualsGetNotificationMessageFaq();
+
+        footerPage.clickCloseInformationWindow()
+                  .clickRulesBtn()
+                  .assertEqualsGetNotificationMessageRules();
+
+        footerPage.clickCloseInformationWindow()
+                  .clickContactUsBtn()
+                  .assertTrueUrlContainsContactUs();
     }
 
 
@@ -30,14 +33,16 @@ public class TestFooter extends AbstractTestBase {
     @Description("Test bettings information in footer")
     public void checkBettingsInFooter() {
         FooterPage footerPage = new FooterPage(driver);
-        footerPage.open();
 
+        footerPage.open();
         footerPage.clickSportBettingBtn()
-                .assertTrueUrlContainsSport1()
-                .clickLiveBettingBtn()
-                .assertEqualsGetNotificationMessageLive()
-                .clickVirtualSportsBtn()
-                .assertTrueUrlContainsVirtual();
+                  .assertTrueUrlContainsSport1();
+
+        footerPage.clickLiveBettingBtn()
+                  .assertEqualsGetNotificationMessageLive();
+
+        footerPage.clickVirtualSportsBtn()
+                  .assertTrueUrlContainsVirtual();
     }
 
     @Test
@@ -47,12 +52,14 @@ public class TestFooter extends AbstractTestBase {
 
         footerPage.open();
         footerPage.clickLiveCasinoBtn()
-                .assertTrueUrlContainsCasino()
-                .clickLiveBingoBtn()
-                .assertTrueUrlContainsliveGames()
-                .clickCloseInformationWindow()
-                .clickSlotsBtn()
-                .assertTrueUrlContainsSlots();
+                  .assertTrueUrlContainsCasino();
+
+        footerPage.clickLiveBingoBtn()
+                  .assertTrueUrlContainsliveGames();
+
+        footerPage.clickCloseInformationWindow()
+                  .clickSlotsBtn()
+                  .assertTrueUrlContainsSlots();
     }
 
     @Test
@@ -62,6 +69,18 @@ public class TestFooter extends AbstractTestBase {
 
         footerPage.open();
         footerPage.clickBonusBtn()
-                .assertTrueUrlContainsPromo();
+                  .assertTrueUrlContainsPromo();
+    }
+
+    @Test
+    @Description("Check footer wrapper isDisplayed")
+    public void checkFooterWrapperIsDisplayed() {
+        FooterPage footerPage = new FooterPage(driver);
+
+        footerPage.open();
+        footerPage.assertTrueIsDisplayedBtnSlotSuperGame()
+                  .assertTrueIsDisplayedLogoCiproBet()
+                  .assertTrueIsDisplayedBtnHelp()
+                  .assertTrueIsDisplayedBtnLiveSupport();
     }
 }

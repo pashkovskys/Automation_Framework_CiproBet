@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.AbstractBasePage;
 import pages.utils.WaitUtils;
+
 import static org.testng.Assert.assertTrue;
 
 public class FooterPage extends AbstractBasePage {
@@ -112,6 +113,17 @@ public class FooterPage extends AbstractBasePage {
         return this;
     }
 
+    @Step("Close information window")
+    public FooterPage clickCloseInformationWindow() {
+        logger.info("close information window");
+        getCloseInformationWindow().click();
+        return this;
+    }
+
+    /**
+     * ****************************************** Footer page locators ************************************************
+     */
+
     private WebElement getAboutUsBtn() {
         return getClickableElementByXpath("//a[normalize-space()='About Us']");
     }
@@ -120,11 +132,11 @@ public class FooterPage extends AbstractBasePage {
         return getClickableElementByXpath("//div[normalize-space()='F.A.Q.']");
     }
 
-    public WebElement getLiveBettingBtn() {
+    private WebElement getLiveBettingBtn() {
         return getClickableElementByXpath("//a[normalize-space()='Live Betting']");
     }
 
-    public WebElement getNotificationMessageFaq() {
+    private WebElement getNotificationMessageFaq() {
         return getVisibilityElementByXpath("//h1[@class='entry-title']");
     }
 
@@ -132,7 +144,7 @@ public class FooterPage extends AbstractBasePage {
         return getClickableElementByXpath("//div[normalize-space()='Rules']");
     }
 
-    public WebElement getNotificationMessageRules() {
+    private WebElement getNotificationMessageRules() {
         return getVisibilityElementByXpath("//h1[@class='entry-title']");
     }
 
@@ -140,24 +152,20 @@ public class FooterPage extends AbstractBasePage {
         return getVisibilityElementByXpath("//a[normalize-space()='Contact Us']");
     }
 
-    public FooterPage clickCloseInformationWindow() {
-        getCloseInformationWindow().click();
-        return this;
-    }
 
     private WebElement getCloseInformationWindow() {
         return getClickableElementByXpath("//i[@class='doruk-close ll-modal__close-button-icon']");
     }
 
-    public WebElement getSportBettingBtn() {
+    private WebElement getSportBettingBtn() {
         return getClickableElementByXpath("//a[normalize-space()='Sport Betting']");
     }
 
-    public WebElement getVirtualSportsBtn() {
+    private WebElement getVirtualSportsBtn() {
         return getClickableElementByXpath("//a[contains(text(),'Virtual Sports')]");
     }
 
-    public WebElement getNotificationMessageLive() {
+    private WebElement getNotificationMessageLive() {
         return getClickableElementByXpath("//div[@class='ll-header__menu--sticky slick-list__top-container--desktop']//span[@class='menu-item__label'][normalize-space()='live']");
     }
 
@@ -177,10 +185,29 @@ public class FooterPage extends AbstractBasePage {
         return getClickableElementByXpath("//a[normalize-space()='Bonus']");
     }
 
+    private boolean isDisplayedBtnSlotSuperGame() {
+        return getVisibilityElementByXpath("//span[contains(text(),'Slot super game - super super super super super su')]").isDisplayed();
+    }
+
+    private boolean isDisplayedLogoCiproBet() {
+        return getVisibilityElementByXpath("//div[@class='ll-footer__logo']").isDisplayed();
+    }
+
+    private boolean isDisplayedBtnHelp() {
+        return getVisibilityElementByXpath("//span[normalize-space()='Help']").isDisplayed();
+    }
+
+    private boolean isDisplayedBtnLiveSupport() {
+        return getVisibilityElementByXpath("//span[normalize-space()='Live Support']").isDisplayed();
+    }
+
+    /**
+     * ******************************************** Footer page Asserts ************************************************
+     */
+
     @Step("Assert true url contains about us")
     public FooterPage assertTrueUrlContainsAboutus() {
         logger.info("assert true url contains about us");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/aboutus"), "url is /aboutus");
         return this;
     }
@@ -188,7 +215,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert equals get notification message faq")
     public FooterPage assertEqualsGetNotificationMessageFaq() {
         logger.info("assert equals get notification message faq");
-        new FooterPage(driver);
         Assert.assertEquals(getNotificationMessageFaq().getText(), "FREQUENTLY ASKED QUESTIONS");
         driver.switchTo().defaultContent();
         return this;
@@ -197,7 +223,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert equals get notification message rules")
     public FooterPage assertEqualsGetNotificationMessageRules() {
         logger.info("assert equals get notification message rules");
-        new FooterPage(driver);
         Assert.assertEquals(getNotificationMessageRules().getText(), "General Rules");
         driver.switchTo().defaultContent();
         return this;
@@ -206,7 +231,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert true url contains contact us")
     public FooterPage assertTrueUrlContainsContactUs() {
         logger.info("assert true url contains contact us");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/contact-us"), "url is /contact-us");
         return this;
     }
@@ -214,7 +238,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert true url contains sport/1")
     public FooterPage assertTrueUrlContainsSport1() {
         logger.info("assert true url contains sport/1");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/sport/1"), "url is /sport/1");
         return this;
     }
@@ -222,7 +245,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert equals get notification message live")
     public FooterPage assertEqualsGetNotificationMessageLive() {
         logger.info("assert equals get notification message live");
-        new FooterPage(driver);
         Assert.assertEquals(getNotificationMessageLive().getText(), "LIVE");
         return this;
     }
@@ -230,7 +252,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert true url contains virtual")
     public FooterPage assertTrueUrlContainsVirtual() {
         logger.info("assert true url contains virtual");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/virtual"), "url is /virtual");
         return this;
     }
@@ -238,7 +259,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert true url contains casino")
     public FooterPage assertTrueUrlContainsCasino() {
         logger.info("assert true url contains casino");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/casino"), "url is /casino");
         sleep(500);
         return this;
@@ -247,7 +267,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert true url contains live games")
     public FooterPage assertTrueUrlContainsliveGames() {
         logger.info("assert true url contains live games");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/live-games"), "url is /live-games");
         return this;
     }
@@ -255,7 +274,6 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert true url contains slots")
     public FooterPage assertTrueUrlContainsSlots() {
         logger.info("assert true url contains slots");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/slots"), "url is /slots");
         return this;
     }
@@ -263,8 +281,35 @@ public class FooterPage extends AbstractBasePage {
     @Step("Assert true url contains promo")
     public FooterPage assertTrueUrlContainsPromo() {
         logger.info("assert true url contains promo");
-        new FooterPage(driver);
         assertTrue(WaitUtils.waitUrlContains(driver, "/promo"), "url is /promo");
+        return this;
+    }
+
+    @Step("Assert true is displayed button slot super game")
+    public FooterPage assertTrueIsDisplayedBtnSlotSuperGame() {
+        logger.info("assert true is displayed button slot super game");
+        assertTrue(isDisplayedBtnSlotSuperGame(), "Slot super game - super super super super super su");
+        return this;
+    }
+
+    @Step("Assert true is displayed logo CiproBet")
+    public FooterPage assertTrueIsDisplayedLogoCiproBet() {
+        logger.info("Assert true is displayed logo CiproBet");
+        assertTrue(isDisplayedLogoCiproBet());
+        return this;
+    }
+
+    @Step("Assert true is displayed button Help")
+    public FooterPage assertTrueIsDisplayedBtnHelp() {
+        logger.info("assert true is displayed button Help");
+        assertTrue(isDisplayedBtnHelp(), "Help");
+        return this;
+    }
+
+    @Step("Assert true is displayed button Live Support")
+    public FooterPage assertTrueIsDisplayedBtnLiveSupport() {
+        logger.info("assert true is displayed button Live Support");
+        assertTrue(isDisplayedBtnLiveSupport(), "Live Support");
         return this;
     }
 }

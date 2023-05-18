@@ -73,7 +73,11 @@ public class HeaderPage extends AbstractBasePage {
         return this;
     }
 
-    public WebElement getSignInBtn() {
+    /**
+     * **************************************** Header page locators ***************************************************
+     */
+
+    private WebElement getSignInBtn() {
         return getClickableElementByXpath("//button[@class='ll-btn2 ll-header-btn']//div[@class='ll-btn__content active'][normalize-space()='Login']");
     }
 
@@ -105,11 +109,11 @@ public class HeaderPage extends AbstractBasePage {
         return getVisibilityElementByXpath("//div[normalize-space()='Login']");
     }
 
-    public WebElement getLanguageLogo() {
+    private WebElement getLanguageLogo() {
         return getVisibilityElementByXpath("//p[@class='ll-language-picker__text']");
     }
 
-    public WebElement getMemberLogin() {
+    private WebElement getMemberLogin() {
         return getVisibilityElementByXpath("//div[@class='ll-modal__header-title'][contains(text(),\"Member Login\")]");
     }
 
@@ -117,14 +121,17 @@ public class HeaderPage extends AbstractBasePage {
         return getClickableElementByXpath("//i[@class='doruk-close ll-modal__close-button-icon']");
     }
 
-    public WebElement getRegistrationForm() {
+    private WebElement getRegistrationForm() {
         return getVisibilityElementByXpath("//p[normalize-space()='Registration form']");
     }
+
+    /**
+     * *******************************************  Header page Asserts ***********************************************
+     */
 
     @Step("Assert equals get language logo")
     public HeaderPage assertEqualsGetLanguageLogo() {
         logger.info("assert equals get language logo");
-        new HeaderPage(driver);
         Assert.assertEquals(getLanguageLogo().getText(), "ENGLISH");
         return this;
     }
@@ -132,15 +139,12 @@ public class HeaderPage extends AbstractBasePage {
     @Step("Assert true url contains")
     public HeaderPage assertTrueUrlContains() {
         logger.info("assert true url contains");
-        new HeaderPage(driver);
-//        assertTrue(waitUrlContains(driver, "https://ciprobet-int.tovdoruk.com/"));
         return this;
     }
 
     @Step("Assert equals get member login")
     public HeaderPage assertEqualsGetMemberLogin() {
         logger.info("assert equals get member login");
-        new HeaderPage(driver);
         Assert.assertEquals(getMemberLogin().getText(), "MEMBER LOGIN");
         return this;
     }
@@ -148,7 +152,6 @@ public class HeaderPage extends AbstractBasePage {
     @Step("Assert equals get registration form")
     public HeaderPage assertEqualsGetRegistrationForm() {
         logger.info("assert equals get registration form");
-        new HeaderPage(driver);
         Assert.assertEquals(getRegistrationForm().getText(), "Registration form");
         return this;
     }
@@ -156,7 +159,6 @@ public class HeaderPage extends AbstractBasePage {
     @Step("Assert true wait url contains")
     public HeaderPage assertEqualsGetMemberLogitScreenText() {
         logger.info("assert true wait url contains");
-        new HeaderPage(driver);
         Assert.assertEquals(getMemberLogin().getText(), "MEMBER LOGIN");
         return this;
     }
@@ -164,7 +166,6 @@ public class HeaderPage extends AbstractBasePage {
     @Step("Assert true url contains sign up")
     public HeaderPage assertTrueUrlContainsSignUp() {
         logger.info("assert true url contains sign up");
-        new HeaderPage(driver);
         Assert.assertEquals(getRegistrationForm().getText(), "Registration form");
         return this;
     }

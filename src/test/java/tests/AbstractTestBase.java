@@ -64,7 +64,7 @@ public class AbstractTestBase extends Base {
     @AfterMethod
     public void quiteDriver() {
         logger.info("quite driver");
-        driver.quit();
+//        driver.quit();
     }
 
     @AfterSuite()

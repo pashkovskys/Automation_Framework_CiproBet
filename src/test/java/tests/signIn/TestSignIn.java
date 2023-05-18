@@ -28,8 +28,8 @@ public class TestSignIn extends AbstractTestBase {
 
         signInPage.open();
         signInPage.clickLoginBtn()
-                .clickNotHaveAccountBtn()
-                .assertEqualsGetInfoMassageRegistrationForm();
+                  .clickNotHaveAccountBtn()
+                  .assertEqualsGetInfoMassageRegistrationForm();
     }
 
     @Test
@@ -39,8 +39,8 @@ public class TestSignIn extends AbstractTestBase {
 
         signInPage.open();
         signInPage.clickLoginBtn()
-                .setForgotThePasswordLink()
-                .assertEqualsGetInfoMessageFargotPassword();
+                  .setForgotThePasswordLink()
+                  .assertEqualsGetInfoMessageFargotPassword();
     }
 
     @Test
@@ -50,8 +50,8 @@ public class TestSignIn extends AbstractTestBase {
 
         signInPage.open();
         signInPage.clickLoginBtn()
-                .assertEqualsGetLoginUserNamePlaceholder()
-                .assertEqualsGetLoginPasswordPlaceholder();
+                  .assertEqualsGetLoginUserNamePlaceholder()
+                  .assertEqualsGetLoginPasswordPlaceholder();
     }
 
     @Test
@@ -61,6 +61,6 @@ public class TestSignIn extends AbstractTestBase {
         String blockedEmail = "stab.testqa+W001Blocked@kajdgzyg.mailosaur.net";
 
         signInPage.signInUserWithoutCode(blockedEmail, UserCreations.PASSWORD)
-                .assertEqualsGetNotificationMessage();
+                  .assertEqualsGetNotificationMessage();
     }
 }

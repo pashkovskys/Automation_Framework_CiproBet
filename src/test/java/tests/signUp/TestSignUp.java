@@ -15,7 +15,10 @@ public class TestSignUp extends AbstractTestBase {
 
         String email = UserCreations.getRandomUserEmail();
         signUpPage.registrationUser(email)
-                .assertTrueIsPresentSignUpBtn();
+                  .clickAgreeBtn()
+                  .clickSubmitBtn()
+
+                  .assertTrueIsPresentSignUpBtn();
     }
 
     @Test
@@ -25,7 +28,7 @@ public class TestSignUp extends AbstractTestBase {
 
         String email = UserCreations.USER_EMAIL;
         signUpPage.registrationUser(email)
-                .assertTrueGetErrorMessageWithRegistrationEmail();
+                  .assertTrueGetErrorMessageWithRegistrationEmail();
     }
 
     @Test
@@ -35,7 +38,7 @@ public class TestSignUp extends AbstractTestBase {
 
         signUpPage.open();
         signUpPage.clickAlreadyHaveAccountBtn()
-                .assertTrueCheckLogInButtonInSignUpPage();
+                  .assertTrueCheckLogInButtonInSignUpPage();
     }
 
     @Test
@@ -45,7 +48,8 @@ public class TestSignUp extends AbstractTestBase {
 
         signUpPage.open();
         signUpPage.setTermsOfService()
-                .asserTruetUrlContains();
+
+                  .asserTruetUrlContains();
     }
 
     @Test
@@ -55,7 +59,8 @@ public class TestSignUp extends AbstractTestBase {
 
         signUpPage.open();
         signUpPage.setTermsOfConditions()
-                .assertEqualsMassegeRules();
+
+                  .assertEqualsMassegeRules();
     }
 
     @Test
@@ -65,6 +70,7 @@ public class TestSignUp extends AbstractTestBase {
 
         signUpPage.open();
         signUpPage.setPrivacyPolicy()
-                .assertTrueUrlContains();
+
+                  .assertTrueUrlContains();
     }
 }

@@ -13,7 +13,7 @@ public class TestValidationSignIn extends AbstractTestBase {
     public void checkLoginUnregisteredEmail() {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.signInUserWithoutCode(UserCreations.WRONG_USER_NAME, UserCreations.PASSWORD)
-                .assertEqualsGetErrorMessageText();
+                  .assertEqualsGetErrorMessageText();
     }
 
     @Test
@@ -21,7 +21,7 @@ public class TestValidationSignIn extends AbstractTestBase {
     public void checkLoginWithInvalidPassword() {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.signInUserWithoutCode(UserCreations.USER_NAME, UserCreations.PASSWORD + "@")
-                .assertEqualsGetErrorMessageText();
+                  .assertEqualsGetErrorMessageText();
     }
 
     @Test
@@ -29,6 +29,6 @@ public class TestValidationSignIn extends AbstractTestBase {
     public void checkValidLogin() {
         SignInPage signInPage = new SignInPage(driver);
         signInPage.signInUserWithoutCode(UserCreations.USER_NAME, UserCreations.PASSWORD)
-                .assertTrueIsDisplayedUserName();
+                  .assertTrueIsDisplayedUserName();
     }
 }
