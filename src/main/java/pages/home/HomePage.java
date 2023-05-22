@@ -41,7 +41,7 @@ public class HomePage extends AbstractBasePage {
     public HomePage clickMenuItemSlotBattle() {
         logger.info("click button slot battle menu item");
         getMenuItemSlotBattle().click();
-        closeModalIcon().click();
+//        closeModalIcon().click();
         return this;
     }
 
@@ -105,6 +105,7 @@ public class HomePage extends AbstractBasePage {
     public HomePage clickMenuItemAviator() {
         logger.info("click menu item Aviator");
         getMenuItemAviator().click();
+        closeModalIcon().click();
         return this;
     }
 
@@ -124,11 +125,11 @@ public class HomePage extends AbstractBasePage {
     }
 
     private WebElement getMenuItemAviator() {
-        return getClickableElementByXpath("//span[normalize-space()='promotions']");
+        return getClickableElementByXpath("//span[normalize-space()='aviator']");
     }
 
     private WebElement getMenuItemVirtualSports() {
-        return getClickableElementByXpath("//span[normalize-space()='promotions']");
+        return getClickableElementByXpath("//span[normalize-space()='Virtual Sports']");
     }
 
     private WebElement getMenuItemTvBet() {
@@ -329,6 +330,7 @@ public class HomePage extends AbstractBasePage {
     @Step("Assert true url contains Virtual Sports")
     public HomePage assertTrueUrlContainsVirtualSports() {
         logger.info("assert true url contains Virtual Sports");
+        sleep(500);
         assertTrue(WaitUtils.waitUrlContains(driver, "/virtual"), "/virtual");
         return this;
     }
