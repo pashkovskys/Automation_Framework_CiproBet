@@ -12,7 +12,7 @@ UI tests:
   artifacts:
     when: always
     paths:
-      - /Automation_Framework_CiproBet/target/allure-results
+      - /target/allure-results/environment.properties
 
 Allure report:
   stage: allure
