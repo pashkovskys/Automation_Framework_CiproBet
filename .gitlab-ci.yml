@@ -1,9 +1,25 @@
-image: maven:latest
+image: maven:3.8-openjdk-18
 
 stages:
-  - test
+  - tests
+  - allure
 
-test:
-  stage: test
+UI tests:
+  stage: tests
+  allow_failure: true
   script:
     - mvn clean test
+  artifacts:
+    when: always
+    paths:
+      - /Automation_Framework_CiproBet/target/allure-results
+
+Allure report:
+  stage: allure
+  script:
+    - mvn allure:report
+    - echo "Allure report live here - ссылка на репорт "
+  artifacts:
+    when: always
+    paths:
+      - build/report/allure-report/allureReport/*
