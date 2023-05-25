@@ -2,20 +2,20 @@
 
 
 
-##### Run authentication-registration  tests on dev environment
+##### Run login tests on dev environment
 example:
 ```bash
-mvn -DsuiteXmlFile=login.xml -P dev,headless_enabled tests
+mvn -DsuiteXmlFile=login.xml -P dev,headless test
 ```
 
 ##### Run authentication-registration tests on dev environment
 example:
 ```bash
-mvn -DsuiteXmlFile=registration.xml -P dev,headless_enabled tests
+mvn -DsuiteXmlFile=registration.xml -P dev,headless test
 ```
 
 ##### Run homeUI tests on dev environment
 example:
 ```bash
-mvn -DsuiteXmlFile=homeUI.xml -P dev,headless_enabled tests
+mvn -DsuiteXmlFile=homeUi.xml -P dev,headless test
 ```

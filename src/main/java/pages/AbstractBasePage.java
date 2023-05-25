@@ -17,7 +17,9 @@ import static org.testng.Assert.fail;
 public class AbstractBasePage extends Base {
 
     protected WebDriver driver;
+
     protected WebDriverWait wait;
+
     protected final Logger logger;
     private final int BASE_WAIT = 15;
 

@@ -9,7 +9,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import pages.AbstractBasePage;
 import pages.utils.WaitUtils;
-
 import static org.testng.Assert.assertTrue;
 
 public class FooterPage extends AbstractBasePage {

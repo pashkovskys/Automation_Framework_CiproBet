@@ -11,7 +11,6 @@ import org.openqa.selenium.WebElement;
 import pages.AbstractBasePage;
 import pages.utils.CheckUtil;
 import pages.utils.WaitUtils;
-
 import static helper.UserCreations.getGeneratePhoneNumber;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;

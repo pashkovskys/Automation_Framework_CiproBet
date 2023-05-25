@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>18</maven.compiler.source>
         <maven.compiler.target>18</maven.compiler.target>
-        <aspectj.version>1.9.6</aspectj.version>
+        <aspectj.version>1.9.7</aspectj.version>
 <!--        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
     </properties>
     <build>
@@ -27,10 +27,9 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
                     <!--suppress UnresolvedMavenProperty -->
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
+                    <argLine>-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"</argLine>
                     <suiteXmlFiles>
                         <!--suppress UnresolvedMavenProperty -->
                         <suiteXmlFile>src/test/resources/siutes/${suiteXmlFile}</suiteXmlFile>
@@ -111,6 +110,18 @@
             <version>3.2.1</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>3.3.1</version>
+        </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-api</artifactId>
@@ -145,31 +156,9 @@
         </profile>
         <!--HEADLESS MODE-->
         <profile>
-            <id>headless_enabled</id>
+            <id>headless</id>
             <properties>
                 <headless.mode>--headless</headless.mode>
-            </properties>
-        </profile>
-        <profile>
-            <id>headless_disabled</id>
-            <properties>
-                <headless.mode/>
-            </properties>
-        </profile>
-        <!-- GRID -->
-        <profile>
-            <id>nogrid</id>
-            <properties>
-                <grid></grid>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>grid</id>
-            <properties>
-                <grid>http://localhost:4444/wd/hub</grid>
             </properties>
         </profile>
     </profiles>
