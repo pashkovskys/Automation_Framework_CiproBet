@@ -50,8 +50,6 @@ public class HomePage extends AbstractBasePage {
         return this;
     }
 
-
-
     @Step("Click menu item casino")
     public HomePage clickMenuItemCasino() {
         logger.info("click menu item casino");
