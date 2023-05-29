@@ -17,9 +17,9 @@ UI tests:
 Allure report:
   stage: allure
   script:
-    - mvn allure:report
-    - echo "Allure report live here - ссылка на репорт "
+    - mvn io.qameta.allure:allure-maven:report
+    - echo "Allure report live here - ссылка на репорт http://192.168.1.232:53812/"
   artifacts:
     when: always
     paths:
-      - build/report/allure-report/allureReport/*
+      - /builds/spashkovskyi/Automation_Framework_CiproBet/target/site/allure-maven-plugin

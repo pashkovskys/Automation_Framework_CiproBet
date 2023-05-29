@@ -185,7 +185,7 @@ public class FooterPage extends AbstractBasePage {
     }
 
     private boolean isDisplayedBtnSlotSuperGame() {
-        return getVisibilityElementByXpath("//span[contains(text(),'Slot super game - super super super super super su')]").isDisplayed();
+        return getVisibilityElementByXpath("//button[@class='ll-btn2 ll-footer__btn ll-btn--full-rounded ll-footer__link--featured']//div[@class='ll-btn__content active']").isDisplayed();
     }
 
     private boolean isDisplayedLogoCiproBet() {
